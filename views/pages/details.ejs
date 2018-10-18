@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+function edit(field, fieldValue)
+  {
+    console.log('in edit', field)
+    console.log('detailField', fieldValue)
+    $('#editModalLabel').text('Edit ' + field)
+    $('#editModalInput').val(fieldValue)
+  }
+</script>
+  <style>
+    span.font-style {
+      font-weight: 600;
+    }
+    .row-style {
+      border-top: 0.07rem dashed rgb(235, 237, 242);
+    }
+    .col-margin-style {
+      margin-top: 20px;
+    }
+    .i-style {
+      cursor: pointer;
+    }
+</style>
+
+</head>
+<body>
+  <div class="row row-style">
+    <% for(let i = 0; i < customer.details.length; i+= 4) {%>
+    <div class="col-md-3 col-margin-style">
+        <div>
+          <span class="font-style">
+            <%= Object.keys(customer.details[i]) %>:&nbsp;
+            <i data-toggle='modal' data-target='#m_modal_1_2' class="fa fa-edit i-style" onclick="edit('<%= Object.keys(customer.details[i]) %>', '<%= customer.details[i][Object.keys(customer.details[i])] %>' )"></i>
+          </span>
+          <br />
+          <span><%= customer.details[i][Object.keys(customer.details[i])] %></span>
+        </div>
+    </div>
+    <% if (customer.details[i+1]) { %>
+    <div class="col-md-3 col-margin-style">
+        <div>
+          <span class="font-style">
+            <%= Object.keys(customer.details[i+1]) %>:&nbsp;
+            <i data-toggle='modal' data-target='#m_modal_1_2' class="fa fa-edit i-style" onclick="edit('<%= Object.keys(customer.details[i+1]) %>', '<%= customer.details[i+1][Object.keys(customer.details[i+1])] %>' )"></i>
+          </span>
+          <br />
+          <span><%= customer.details[i+1][Object.keys(customer.details[i+1])] %></span>
+        </div>
+    </div>
+    <% } %>
+    <% if (customer.details[i+2]) { %>
+    <div class="col-md-3 col-margin-style">
+      <div>
+        <span class="font-style">
+          <%= Object.keys(customer.details[i+2]) %>:&nbsp;
+          <i data-toggle='modal' data-target='#m_modal_1_2' class="fa fa-edit i-style" onclick="edit('<%= Object.keys(customer.details[i+2]) %>', '<%= customer.details[i+2][Object.keys(customer.details[i+2])] %>' )"></i>
+        </span>
+        <br />
+        <span><%= customer.details[i+2][Object.keys(customer.details[i+2])] %></span>
+      </div>
+    </div>
+    <% } %>
+    <% if (customer.details[i+3]) { %>
+    <div class="col-md-3 col-margin-style">
+      <div>
+        <span class="font-style">
+          <%= Object.keys(customer.details[i+3]) %>:&nbsp;
+          <i data-toggle='modal' data-target='#m_modal_1_2' class="fa fa-edit i-style" onclick="edit('<%= Object.keys(customer.details[i+3]) %>', '<%= customer.details[i+3][Object.keys(customer.details[i+3])] %>' )"></i>
+        </span>
+        <br />
+        <span><%= customer.details[i+3][Object.keys(customer.details[i+3])] %></span>
+      </div>
+    </div>
+    <% } %>
+    <% } %>
+      <%- include('./modal', { customer, detailField }); %>
+  </div>
+</body>

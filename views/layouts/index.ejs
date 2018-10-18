@@ -5,11 +5,29 @@
 <head>
     <% include ../partials/head %>
 </head>
+<style>
+  .padding-style {
+    padding: 4.4rem 8.8rem;
+  }
+</style>
 <body class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark
                 m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >
+<div class='m-grid__item m-grid__item--fluid m-wrapper'>
+  <div class='m-content'>
 
-<%- include('../pages/main'); %>    
-
+          <div class='row'>
+            <div class='col-xl-12 col-lg-12  col-md-12 col-sm-12 col-xs-12'>
+                <div class='m-portlet__body padding-style'>
+                  <%- include('../pages/customerInfo', { customer }); %>
+                          <br />
+                          <%- include('../pages/subscriberInfo', { customer }); %>
+                          <br />
+                          <%- include('../pages/details', { customer, detailField }); %>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
 <% include ../partials/footer %>
 </body>
 </html>
