@@ -12,7 +12,7 @@ const appObj = (config.env === 'production' || config.env === 'staging') ? app :
 mongoose.connect(config.mongo.uri, config.mongo.options)
 
 require('./config/express')(appObj)
-require('./config/setup')(app, httpApp, config)
+require('./config/setup')(appObj, config)
 require('./routes')(appObj)
 
 process.on('uncaughtException', function (exception) {
