@@ -11,12 +11,11 @@ exports.findAll = () => {
 }
 
 exports.createRecords = (body) => {
-  return Customers.insert(body)
-    .exec()
+  return Customers.insertMany(body)
 }
 
 exports.findOne = (id) => {
-  return Customers.findOne({_id: id})
+  return Customers.findOne({customerId: id})
     .exec()
 }
 

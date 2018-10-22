@@ -56,6 +56,7 @@ exports.create = function (req, res) {
 
 exports.update = function (req, res) {
   logger.serverLog(TAG, 'Hit the customers update')
+  logger.serverLog(TAG, JSON.stringify(req.body))
   dataLayer.updateOne(req.params.id, req.body)
     .then(updatedCustomer => {
       res.status(200).json({
