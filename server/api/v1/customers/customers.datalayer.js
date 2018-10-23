@@ -28,3 +28,8 @@ exports.deleteOne = (id) => {
   return Customers.deleteOne({_id: id})
     .exec()
 }
+
+exports.findCompanyCustomers = (id) => {
+  return Customers.find({'company._id': id})
+    .exec()
+}
