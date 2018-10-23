@@ -1,37 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <style>
-    img.normal {
-      width: 150px;
-      height: 130px;
-    }
-    span.normal {
-      display: block;
-      margin-top: 10px;
-    }
-    span.float-style {
-      float: right;
-    }
-</style>
-</head>
-<body>
+
 <div class="row">
   <div class="col-md-2">
-    <img class="normal" alt="pic" src="https://platform-lookaside.fbsbx.com/platform/profilepic/?psid=1546535128769449&width=1024&ext=1541507727&hash=AeRq0cXNg1K-g1D8" />
+    <img class="normal" alt="pic" src="http://guidonpartners.com/wp-content/uploads/sites/15/2014/09/unknown.jpg" />
   </div>
   <div class="col-md-10">
-      <span class="float-style"><b>Customer ID:</b> <%= customer.customer_id %></span>
-      <span><h3><%= customer.first_name %> <%= customer.last_name %></h3></span>
-      <span class="normal"><i class="la la-institution"></i>&nbsp;<%= customer.company_id.companyName %></span>
+      <span class="float-style"><b>Customer ID:</b> <%= customer.customerId %></span>
+      <span><h3><%= customer.firstName %> <%= customer.lastName %></h3></span>
+      <span class="normal"><i class="la la-institution"></i>&nbsp;<%= customer.company.companyName %></span>
       <span class="normal">
-        <% if (customer.subscriber_id.gender === 'female') { %>
+        <% if (customer.subscriber && customer.subscriber.gender === 'female') { %>
         <i class="la la-female"></i>
-        <% } else { %>
+          &nbsp;<%= customer.subscriber.gender %></span>
+        <% } else if (customer.subscriber && customer.subscriber.gender === 'male') { %>
           <i class="la la-male"></i>
+          &nbsp;<%= customer.subscriber.gender %></span>
         <% } %>
-        &nbsp;<%= customer.subscriber_id.gender %></span>
-      <span class="normal"><i class="la la-globe"></i>&nbsp;<%= customer.subscriber_id.locale %></span>
+      <span class="normal">
+        <% if (customer.subscriber) { %>
+          <i class="la la-globe"></i>&nbsp;<%= customer.subscriber.locale %>
+        <% } %>
+      </span>
   </div>
 </div>
-</body>

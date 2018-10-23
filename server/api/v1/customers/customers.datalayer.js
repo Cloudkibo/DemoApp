@@ -11,12 +11,11 @@ exports.findAll = () => {
 }
 
 exports.createRecords = (body) => {
-  return Customers.insert(body)
-    .exec()
+  return Customers.insertMany(body)
 }
 
 exports.findOne = (id) => {
-  return Customers.findOne({_id: id})
+  return Customers.findOne({customerId: id})
     .exec()
 }
 
@@ -27,5 +26,10 @@ exports.updateOne = (id, updated) => {
 
 exports.deleteOne = (id) => {
   return Customers.deleteOne({_id: id})
+    .exec()
+}
+
+exports.findCompanyCustomers = (id) => {
+  return Customers.find({'company._id': id})
     .exec()
 }

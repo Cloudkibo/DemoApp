@@ -56,6 +56,7 @@ exports.create = function (req, res) {
 
 exports.update = function (req, res) {
   logger.serverLog(TAG, 'Hit the customers update')
+  logger.serverLog(TAG, JSON.stringify(req.body))
   dataLayer.updateOne(req.params.id, req.body)
     .then(updatedCustomer => {
       res.status(200).json({
@@ -84,6 +85,23 @@ exports.delete = function (req, res) {
       res.status(500).json({
         status: 'failed',
         payload: `Failed to delete customer ${JSON.stringify(err)}`
+      })
+    })
+}
+
+exports.getCustomers = function (req, res) {
+  logger.serverLog(TAG, 'Hit the customers getCustomers')
+  dataLayer.findCompanyCustomers(req.params.id)
+    .then(customers => {
+      res.status(200).json({
+        status: 'success',
+        payload: customers
+      })
+    })
+    .catch(err => {
+      res.status(500).json({
+        status: 'failed',
+        payload: `Failed to fetch customers ${JSON.stringify(err)}`
       })
     })
 }

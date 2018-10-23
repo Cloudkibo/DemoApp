@@ -1,38 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <style>
-    .div-style {
-      display: -webkit-inline-box;
-    }
-    .label-style {
-      margin-top: 5px;
-    }
-    .input-style {
-      width: 300px;
-    }
-</style>
 
-</head>
-<body>
 <div class='modal fade' id='m_modal_1_2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                  <div class='modal-dialog' role='document'>
-                    <div class='modal-content'>
-                      <div style={{display: 'block'}} class='modal-header'>
-                        <h5 class='modal-title' id='editModalLabel'>
-                        </h5>
-                      </div>
-                      <div class='modal-body'>
-                        <div class='div-style'>
-                          <label class='control-label label-style'>Value:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                          <input id='editModalInput' class='form-control input-style'/>
-                        </div>
-                      </div>
-                      <div class='modal-footer'>
-                        <button class='btn btn-primary' style={{float: 'right', marginTop: '10px'}}> Save
-                        </button>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-</body>
+  <div class='modal-dialog' role='document'>
+    <div class='modal-content'>
+      <div style={{display: 'block'}} class='modal-header'>
+        <h5 class='modal-title' id='editModalLabel'>
+        </h5>
+        <button style="opacity: 0.5; cursor: pointer" type='button' class='close' data-dismiss='modal' aria-label='Close'>
+          <span aria-hidden='true'>
+            &times;
+          </span>
+        </button>
+      </div>
+      <div class='modal-body'>
+        <div class='div-style'>
+          <label class='control-label label-style'>Value:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+          <input id='editModalInput' class='form-control input-style'/>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button onclick="updateAndSave()" class='btn btn-primary close' style="font-size: 1rem; opacity: 1; background-color: #5867dd; font-weight: 400; border: 1px solid transparent; padding: 0.65rem 1.25rem" data-dismiss='modal'>
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

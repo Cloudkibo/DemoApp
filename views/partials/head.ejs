@@ -22,3 +22,71 @@
 <link href="https://cdn.cloudkibo.com/public/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
 <!--end::Base Styles -->
 <link rel="shortcut icon" href="https://cdn.cloudkibo.com/public/assets/demo/default/media/img/logo/favicon.ico" />
+<script>
+  function edit(field, fieldValue) {
+    $('#editModalLabel').text('Edit ' + field)
+    $('#editModalInput').val(fieldValue)
+  }
+  function updateAndSave() {
+    let customerDetails = <%- JSON.stringify(customer.details) %>
+    let customerId = <%- JSON.stringify(customer._id) %>
+    let field = $('#editModalLabel').text()
+    let fieldValue = $('#editModalInput').val()
+    let temp = field.split(" ")
+    temp = temp.splice(1, temp.length - 1)
+    field = ""
+    for (let i = 0; i < temp.length; i++) {
+      if (i !== temp.length - 1) {
+        field += `${temp[i]} `
+      } else {
+        field += temp[i]
+      }
+    }
+    let data = {
+      details: customerDetails
+    }
+    data['details'][field] = fieldValue
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("PUT", `/api/v1/customers/${customerId}`, true)
+    xhttp.setRequestHeader('Content-type','application/json; charset=utf-8')
+    xhttp.send(JSON.stringify(data))
+    $(`#${field}`).text(fieldValue)
+  }
+</script>
+<style>
+  .padding-style {
+    padding: 4.4rem 8.8rem;
+  }
+  img.normal {
+    width: 150px;
+    height: 130px;
+  }
+  span.normal {
+    display: block;
+    margin-top: 10px;
+  }
+  span.float-style {
+    float: right;
+  }
+  span.font-style {
+    font-weight: 600;
+  }
+  .row-style {
+    border-top: 0.07rem dashed rgb(235, 237, 242);
+  }
+  .col-margin-style {
+    margin-top: 20px;
+  }
+  .i-style {
+    cursor: pointer;
+  }
+  .div-style {
+    display: -webkit-inline-box;
+  }
+  .label-style {
+    margin-top: 5px;
+  }
+  .input-style {
+    width: 300px;
+  }
+</style>

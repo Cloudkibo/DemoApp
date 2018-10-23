@@ -1,41 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <style>
-    span.font-style {
-      font-weight: 600;
-    }
-    .row-style {
-      border-top: 0.07rem dashed rgb(235, 237, 242);
-    }
-    .col-margin-style {
-      margin-top: 20px;
-    }
-</style>
 
-</head>
-<body>
-  <div class="row row-style">
-    <div class="col-md-4 col-margin-style">
-        <div>
-          <span class="font-style">Subscribed At:</span>
-          <br />
-          <span><%= customer.subscriber_id.datetime %></span>
-        </div>
-    </div>
-    <div class="col-md-4 col-margin-style">
-        <div>
-          <span class="font-style">Facebook Page:</span>
-          <br />
-          <span><%= customer.subscriber_id.pageId.pageName %></span>
-        </div>
-    </div>
-    <div class="col-md-4 col-margin-style">
+<div class="row row-style">
+  <div class="col-md-4 col-margin-style">
       <div>
-        <span class="font-style">Source:</span>
+        <span class="font-style">Subscribed At:</span>
         <br />
-        <span><%= customer.subscriber_id.source %></span>
+        <span><%= subscriber.datetime %></span>
       </div>
+  </div>
+  <div class="col-md-4 col-margin-style">
+      <div>
+        <span class="font-style">Facebook Page:</span>
+        <br />
+        <span><%= subscriber.pageId.pageName %></span>
+      </div>
+  </div>
+  <div class="col-md-4 col-margin-style">
+    <div>
+      <span class="font-style">Source:</span>
+      <br />
+      <span><%= subscriber.source %></span>
     </div>
   </div>
-</body>
+</div>
