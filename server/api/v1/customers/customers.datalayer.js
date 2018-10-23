@@ -15,7 +15,7 @@ exports.createRecords = (body) => {
 }
 
 exports.findOne = (id) => {
-  return Customers.findOne({customerId: id})
+  return Customers.findOne({_id: id})
     .exec()
 }
 
