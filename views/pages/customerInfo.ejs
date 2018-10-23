@@ -1,7 +1,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <img class="normal" alt="pic" src="http://guidonpartners.com/wp-content/uploads/sites/15/2014/09/unknown.jpg" />
+    <img class="normal" alt="pic" src="<%= customer.subscriber.profilePic ? customer.subscriber.profilePic : 'http://guidonpartners.com/wp-content/uploads/sites/15/2014/09/unknown.jpg' %>" />
   </div>
   <div class="col-md-10">
       <span class="float-style"><b>Customer ID:</b> <%= customer.customerId %></span>
